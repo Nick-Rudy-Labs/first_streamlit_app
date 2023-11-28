@@ -11,6 +11,11 @@ streamlit.text('🥑🍞 Avacado Toeast')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
+# import fruit list from source csv file
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 
+# set up multi-select pick list
+streamlit.miltiselect("Pick some fruits:", list(my_fruit_list.index))
+
+# display fruits list
 streamlit.dataframe(my_fruit_list)
