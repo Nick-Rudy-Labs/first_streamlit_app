@@ -18,11 +18,6 @@ streamlit.text('🥑🍞 Avacado Toeast')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
-
-
-# set up multi-select pick list
-# streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
-
 # Select fruits
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 fruits_to_show = my_fruit_list.loc[fruits_selected]
@@ -46,20 +41,4 @@ try:
         back_from_function = get_fruityvice_data(fruit_choice)
         streamlit.dataframe(back_from_function)
 
-# don't run anything past here while we troubleshoot
-#streamlit.stop()
 
-#import snowflake.connector
-
-#my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-#my_cur = my_cnx.cursor()
-#my_cur.execute("select * from fruit_load_list")
-#my_data_rows = my_cur.fetchall()
-#streamlit.header("The fruit load list contains:")
-#streamlit.dataframe(my_data_rows)
-
-# Allow the end user to add a fruit to the list
-#add_my_fruit = streamlit.text_input('What fruit would you like to add?','jackfruit')
-#streamlit.write('Thanks for adding', add_my_fruit)
-
-#my_cur.execute("insert into fruit_load_list values ('from streamlit')")
